@@ -1,5 +1,4 @@
 # School-of-Gen-Z
-# School of Genji — Personal Frame Generator
 
 এই version-এ দেওয়া 1024×1024 frame image-টি `assets/image_5.png` হিসেবে বসানো হয়েছে।
 
