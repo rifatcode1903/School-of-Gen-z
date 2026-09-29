@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>School of Genji — Personal Frame Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div><span class="eyebrow">SCHOOL OF GENJI</span><h1>Personal Frame Generator</h1></div>
+  <span class="status"><i></i> Ready</span>
+</header>
+<main class="app">
+  <section class="panel controls">
+    <div class="section-title"><div class="icon">01</div><div><h2>ব্যক্তির তথ্য</h2><p>ফ্রেমে যে তথ্য দেখাতে চান তা দিন</p></div></div>
+    <div class="field">
+      <label for="nameBn">নাম — বাংলা</label>
+      <input id="nameBn"
+       placeholder="যেমন: মোঃ রিফাত হাসান"
+        maxlength="70">
+    </div>
+  <div class="field">
+    <label for="nameEn">Name — English</label>
+    <input id="nameEn" 
+    placeholder="e.g. Md. Rifat Hasan"
+     maxlength="70">
+  </div>
+    <div class="field">
+      <label for="designation">পদবী / Designation</label>
+      <input id="designation" 
+      placeholder="যেমন: পরিচালক / Director" 
+      maxlength="80">
+    </div>
+    <div class="field">
+      <label for="organization">প্রতিষ্ঠানের নাম</label>
+      <input id="organization" 
+      placeholder="প্রতিষ্ঠানের নাম লিখুন" 
+      maxlength="100">
+    </div>
+
+    <div class="section-title upload-heading">
+      <div class="icon">02</div>
+      <div>
+        <h2>ব্যক্তির ছবি</h2>
+        <p>JPG, PNG বা WebP · সর্বোচ্চ 10MB</p>
+      </div>
+    </div>
+    <label class="dropzone"
+     id="dropzone"
+      for="photoInput">
+      <input id="photoInput"
+       type="file" 
+       accept="image/png,image/jpeg,image/webp">
+      <div class="upload-icon">↑</div>
+      <strong>ছবি নির্বাচন করুন
+
+      </strong>
+      <span>
+        অথবা এখানে Drag & Drop করুন
+      </span>
+    </label>
+
+    <div class="remove-bg-row">
+      <label class="switch">
+        <input id="removeBg" type="checkbox" checked>
+        <span>
+        </span>
+      </label>
+      <div>
+<strong>
+  Automatic Background Remove
+</strong>
+<small>
+  ব্রাউজারেই background remove করার চেষ্টা করবে। প্রথমবার model download হতে সময় লাগতে পারে।
+</small>
+ </div>
+</div>
+
+<div class="photo-tools" id="photoTools">
+<div class="tools-title">
+  <strong>
+    03 · ছবির Position & Size
+  </strong>
+  <span>
+    ছবিটা ধরে Drag করুন
+  </span>
+</div>
+ <div
+  class="range-row">
+  <label>
+    Size
+  </label>
+  <input
+   id="zoomRange" 
+   type="range"
+    min="30" 
+    max="180" 
+    value="100">
+    <output
+     id="zoomValue">
+     100%
+    </output>
+    </div>
+<div class="range-row">
+  <label>Horizontal</label>
+  <input id="xRange" 
+  type="range" 
+  min="-400" 
+  max="400"
+   value="0">
+   <output id="xValue">
+    0
+   </output>
+  </div>
+<div class="range-row">
+  <label>
+    Vertical
+  </label>
+<input
+ id="yRange" 
+ type="range"
+  min="-400"
+   max="400" 
+   value="0">
+<output id="yValue">0</output>
+</div>
+
+<button class="mini-reset" 
+id="photoReset"
+ type="button">↺ ছবির Position/Size Reset
+</button>
+<small
+ class="tool-hint">Canvas-এর ছবির উপর mouse/touch দিয়ে ধরে সরান। Mouse wheel দিয়ে zoom করতে পারবেন।
+</small>
+</div>
+
+<div class="action-row">
+  <button class="primary"
+   id="downloadBtn">Generate & Download 
+   <b>↓</b>
+  </button>
+  <button class="secondary"
+   id="resetBtn">Reset</button>
+  </div>
+<p class="message" id="message">
+
+</p>
+</section>
+
+<section class="panel preview-panel">
+<div class="preview-head">
+  <div>
+<span class="eyebrow">LIVE PREVIEW</span>
+
+<h2>আপনার ফ্রেম</h2>
+</div>
+<span id="canvasSize">1024 × 1024px</span>
+</div>
+<div class="canvas-wrap">
+  <canvas id="frameCanvas" width="1024" height="1024">
+  </canvas>
+  <div class="empty-state" id="emptyState">
+    <div>◎</div>
+    <strong>Preview এখানে দেখা যাবে</strong>
+    <span>বাম পাশ থেকে তথ্য ও ছবি যোগ করুন</span>
+  </div>
+</div>
+<div class="tips">
+  <span>✓ Background removal</span>
+  <span>✓ Live preview</span>
+  <span>✓ 1024×1024 PNG</span>
+</div>
+</section>
+</main>
+<footer>School of Genji · Personal Frame Generator</footer>
+<script src="script.js"></script>
+</body>
+</html>
